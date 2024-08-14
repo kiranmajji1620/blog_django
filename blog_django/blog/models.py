@@ -13,7 +13,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default = timezone.now)
     # with auto_now_add set to True we can't update the date_posted
     author = models.ForeignKey(User, on_delete = models.CASCADE, related_name = "posts")# if the user is deleted, delete his posts.
-    
+    # when a user is deleted, delete all his posts.
     def __str__(self):
         return self.title
     
